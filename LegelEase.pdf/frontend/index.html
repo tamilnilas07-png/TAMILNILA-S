@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LegalEase - AI Legal Assistant</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">⚖ LegalEase</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#workspace">Create Document</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                AI-POWERED LEGAL DOCUMENT ASSISTANT
+            </div>
+
+            <h1>
+                Create Legal Documents
+                <span>with AI</span>
+            </h1>
+
+            <p class="description">
+                Create, understand and manage legal documents
+                with the help of Artificial Intelligence.
+            </p>
+
+            <div class="buttons">
+                <button onclick="document.getElementById('workspace').scrollIntoView()">
+                    ✍ Create Document
+                </button>
+
+                <button class="secondary"
+                        onclick="document.getElementById('uploadBox').scrollIntoView()">
+                    📄 Upload Document
+                </button>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="card-icon">⚖</div>
+
+            <h2>LegalEase AI</h2>
+
+            <p>
+                Intelligent assistance for legal document
+                creation and analysis.
+            </p>
+
+            <div class="status">
+                <span></span>
+                Backend Connected
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+
+        <h2>LegalEase Features</h2>
+
+        <p class="section-text">
+            Everything you need to work with legal documents.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Document Analysis</h3>
+                <p>
+                    Upload a document and analyze its important content.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Assistance</h3>
+                <p>
+                    Get AI-assisted help while preparing your document.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✍</div>
+                <h3>Document Generation</h3>
+                <p>
+                    Generate structured legal documents from your requirements.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⬇</div>
+                <h3>Document Download</h3>
+                <p>
+                    Save your generated document for future use.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WORKSPACE -->
+    <section id="workspace" class="workspace">
+
+        <div class="workspace-header">
+
+            <div>
+                <div class="tag">LEGAL DOCUMENT WORKSPACE</div>
+
+                <h2>Create Your Document</h2>
+
+                <p>
+                    Enter the required details and generate your legal document.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="workspace-layout">
+
+            <!-- FORM -->
+            <div class="workspace-card">
+
+                <h3>📝 Document Details</h3>
+
+                <label>Document Type</label>
+
+                <select id="documentType">
+
+                    <option value="">
+                        Select document type
+                    </option>
+
+                    <option>
+                        Rental Agreement
+                    </option>
+
+                    <option>
+                        Employment Agreement
+                    </option>
+
+                    <option>
+                        Freelance Contract
+                    </option>
+
+                    <option>
+                        Non-Disclosure Agreement
+                    </option>
+
+                    <option>
+                        Sale Agreement
+                    </option>
+
+                    <option>
+                        Affidavit
+                    </option>
+
+                    <option>
+                        Other Legal Document
+                    </option>
+
+                </select>
+
+
+                <label>First Party Details</label>
+
+                <textarea
+                    id="firstParty"
+                    placeholder="Enter name, address and other details..."
+                ></textarea>
+
+
+                <label>Second Party Details</label>
+
+                <textarea
+                    id="secondParty"
+                    placeholder="Enter name, address and other details..."
+                ></textarea>
+
+
+                <label>Agreement Date</label>
+
+                <input
+                    type="date"
+                    id="agreementDate"
+                >
+
+
+                <label>Additional Requirements</label>
+
+                <textarea
+                    id="documentRequest"
+                    placeholder="Enter detailed requirements, clauses, conditions and other information..."
+                ></textarea>
+
+
+                <button class="generate-btn"
+                        onclick="generateDocument()">
+
+                    🤖 Generate Legal Document
+
+                </button>
+
+                <div id="generationResult"></div>
+
+            </div>
+
+
+            <!-- UPLOAD -->
+            <div id="uploadBox" class="workspace-card upload-card">
+
+                <h3>📄 Upload Existing Document</h3>
+
+                <p>
+                    Upload PDF, DOCX or TXT files for document analysis.
+                </p>
+
+                <input
+                    type="file"
+                    id="documentFile"
+                    accept=".pdf,.docx,.txt"
+                >
+
+                <button onclick="uploadDocument()">
+                    Upload & Analyze
+                </button>
+
+                <div id="uploadResult"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+
+        <div class="about-card">
+
+            <div class="tag">ABOUT LEGAL EASE</div>
+
+            <h2>Legal assistance made simpler.</h2>
+
+            <p>
+                LegalEase is an AI-powered legal document assistant
+                designed to help users create and understand
+                structured legal documents.
+            </p>
+
+            <p class="warning">
+                ⚠ LegalEase provides AI-assisted information and
+                does not replace professional legal advice.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>© 2026 LegalEase | AI-Powered Legal Document Assistant</p>
+</footer>
+
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
